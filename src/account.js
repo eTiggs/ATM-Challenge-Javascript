@@ -23,6 +23,9 @@ export default class account {
         if (this.#balance < amountWithdrawn) {
             return "Amount withdrawn cannot be more than the balance";
         }
+        if (amountWithdrawn < 0) {
+            return "Amount withdrawn cannot be negative";
+        }
         this.#balance -= amountWithdrawn;
     }
 }

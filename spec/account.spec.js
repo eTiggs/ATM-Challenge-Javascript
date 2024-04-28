@@ -149,4 +149,17 @@ describe("Statement 3 Tests:", () => {
         // Assert
         expect(actual).toBe(expected);
     });
+
+    it("Cannot withdraw a negative amount", () => {
+        // Arrange
+        testAccount.depositMoney(2000);
+
+        // Act
+        testAccount.withdrawMoney(-1000);
+        expected = 2000;
+        actual = testAccount.getBalance();
+
+        // Assert
+        expect(actual).toBe(expected);
+    });
 });
