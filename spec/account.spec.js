@@ -12,7 +12,7 @@ describe("Statement 1 Tests:", () => {
         actual = undefined;
     });
 
-    it("should set a balance to the bank account object", () => {
+    it("should instantiate a bank account object", () => {
         // Arrange
         // Act
         testAccount = new account();
@@ -23,13 +23,24 @@ describe("Statement 1 Tests:", () => {
         expect(actual).toBe(expected);
     });
 
-    it("should instantiate a bank account object", () => {
+    it("should set a balance to the bank account object", () => {
         // Arrange
         // Act
         testAccount = new account(1000);
         // Assert
         expected = true;
         actual = testAccount.balance === 1000;
+
+        expect(actual).toBe(expected);
+    });
+
+    it("should return an error message if the added balance is negative", () => {
+        // Arrange
+        // Act
+        testAccount = new account(-1000);
+        // Assert
+        expected = true;
+        actual = testAccount.balance === 0;
 
         expect(actual).toBe(expected);
     });
