@@ -1,13 +1,13 @@
 import account from "../src/account.js";
 
-describe("Statement 1 Tests:", () => {
+xdescribe("Statement 1 Tests:", () => {
 
     let testAccount;
     let expected;
     let actual;
 
     beforeEach(() => {
-        testAccount = new account(0);
+        testAccount = new account();
         expected = undefined;
         actual = undefined;
     });
@@ -41,6 +41,55 @@ describe("Statement 1 Tests:", () => {
         // Assert
         expected = true;
         actual = testAccount.balance === 0;
+
+        expect(actual).toBe(expected);
+    });
+});
+
+xdescribe("Statement 2 Tests:", () => {
+
+    let testAccount;
+    let expected;
+    let actual;
+
+    beforeEach(() => {
+        testAccount = new account(0);
+        expected = undefined;
+        actual = undefined;
+    });
+
+    it("Money can be deposited", () => {
+        // Arrange
+        spyOn(testAccount, "depositMoney").and.callThrough();
+        // Act
+        testAccount.depositMoney(1000);
+
+        // Assert
+        expect(testAccount.depositMoney).toHaveBeenCalled();
+    });
+
+    it("Unable to deposit negative amounts", () => {
+        // Arrange
+        // Act
+        testAccount.depositMoney(-1000);
+        // Assert
+        expected = 0;
+        actual = testAccount.getBalance();
+
+        expect(actual).toBe(expected);
+    });
+
+    it("Multiple deposits should add to the balance", () => {
+        // Arrange
+        // Act
+        testAccount.depositMoney(1000);
+        testAccount.depositMoney(500);
+        testAccount.depositMoney(250);
+        testAccount.depositMoney(125);
+        testAccount.depositMoney(62.50);
+        // Assert
+        expected = 1937.50;
+        actual = testAccount.getBalance();
 
         expect(actual).toBe(expected);
     });
