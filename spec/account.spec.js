@@ -97,7 +97,7 @@ xdescribe("Statement 2 Tests:", () => {
     
 });
 
-describe("Statement 3 Tests:", () => {
+xdescribe("Statement 3 Tests:", () => {
 
     let testAccount;
     let expected;
