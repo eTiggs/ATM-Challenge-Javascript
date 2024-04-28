@@ -123,12 +123,27 @@ describe("Statement 3 Tests:", () => {
 
     it("Cannot withdraw more than balance", () => {
         // Arrange
-        spyOn(testAccount, "withdrawMoney").and.callThrough();
         testAccount.depositMoney(2000);
 
         // Act
         testAccount.withdrawMoney(3000);
         expected = 2000;
+        actual = testAccount.getBalance();
+
+        // Assert
+        expect(actual).toBe(expected);
+    });
+
+    it("Able to withdraw multiple amounts", () => {
+        // Arrange
+        testAccount.depositMoney(8000);
+
+        // Act
+        testAccount.withdrawMoney(1000);
+        testAccount.withdrawMoney(2000);
+        testAccount.withdrawMoney(3000);
+        testAccount.withdrawMoney(420.69);
+        expected = 1579.31;
         actual = testAccount.getBalance();
         
         // Assert
