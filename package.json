@@ -6,9 +6,13 @@
   "directories": {
     "doc": "docs"
   },
+  "type": "module",
   "scripts": {
     "test": "jasmine"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^5.1.0"
+  }
 }
