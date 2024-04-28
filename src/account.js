@@ -18,4 +18,11 @@ export default class account {
     getBalance() {
         return this.#balance;
     }
+
+    withdrawMoney(amountWithdrawn) {
+        if (this.#balance < amountWithdrawn) {
+            return "Amount withdrawn cannot be more than the balance";
+        }
+        this.#balance -= amountWithdrawn;
+    }
 }

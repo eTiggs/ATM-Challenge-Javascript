@@ -93,4 +93,45 @@ xdescribe("Statement 2 Tests:", () => {
 
         expect(actual).toBe(expected);
     });
+
+    
+});
+
+describe("Statement 3 Tests:", () => {
+
+    let testAccount;
+    let expected;
+    let actual;
+
+    beforeEach(() => {
+        testAccount = new account(0);
+        expected = undefined;
+        actual = undefined;
+    });
+
+    it("Money can be withdrawn", () => {
+        // Arrange
+        spyOn(testAccount, "withdrawMoney").and.callThrough();
+        testAccount.depositMoney(2000);
+
+        // Act
+        testAccount.withdrawMoney(1000);
+
+        // Assert
+        expect(testAccount.withdrawMoney).toHaveBeenCalled();
+    });
+
+    it("Cannot withdraw more than balance", () => {
+        // Arrange
+        spyOn(testAccount, "withdrawMoney").and.callThrough();
+        testAccount.depositMoney(2000);
+
+        // Act
+        testAccount.withdrawMoney(3000);
+        expected = 2000;
+        actual = testAccount.getBalance();
+        
+        // Assert
+        expect(actual).toBe(expected);
+    });
 });
