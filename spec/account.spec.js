@@ -1,4 +1,4 @@
-import account from "../src/account.js";
+import Account from "../src/account.js";
 
 xdescribe("Statement 1 Tests:", () => {
 
@@ -7,7 +7,7 @@ xdescribe("Statement 1 Tests:", () => {
     let actual;
 
     beforeEach(() => {
-        testAccount = new account();
+        testAccount = new Account();
         expected = undefined;
         actual = undefined;
     });
@@ -15,7 +15,7 @@ xdescribe("Statement 1 Tests:", () => {
     it("should instantiate a bank account object", () => {
         // Arrange
         // Act
-        testAccount = new account();
+        testAccount = new Account();
         // Assert
         expected = true;
         actual = testAccount instanceof account;
@@ -26,7 +26,7 @@ xdescribe("Statement 1 Tests:", () => {
     it("should set a balance to the bank account object", () => {
         // Arrange
         // Act
-        testAccount = new account(1000);
+        testAccount = new Account(1000);
         // Assert
         expected = true;
         actual = testAccount.balance === 1000;
@@ -37,7 +37,7 @@ xdescribe("Statement 1 Tests:", () => {
     it("should return an error message if the added balance is negative", () => {
         // Arrange
         // Act
-        testAccount = new account(-1000);
+        testAccount = new Account(-1000);
         // Assert
         expected = true;
         actual = testAccount.balance === 0;
@@ -53,7 +53,7 @@ xdescribe("Statement 2 Tests:", () => {
     let actual;
 
     beforeEach(() => {
-        testAccount = new account(0);
+        testAccount = new Account(0);
         expected = undefined;
         actual = undefined;
     });
@@ -104,7 +104,7 @@ xdescribe("Statement 3 Tests:", () => {
     let actual;
 
     beforeEach(() => {
-        testAccount = new account(0);
+        testAccount = new Account(0);
         expected = undefined;
         actual = undefined;
     });
