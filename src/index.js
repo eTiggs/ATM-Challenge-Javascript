@@ -1,6 +1,10 @@
 import Account from './account.js';
 import TransactionPrinter from './transactionPrinter.js';
 
+
+// TODO: Clear this and write output expected in brief
+ 
+
 let testAccount = new Account(0);
 let testPrinter = new TransactionPrinter();
 
