@@ -22,17 +22,20 @@ export default class TransactionPrinter {
            Chalk is imported and used to colour the output:
               Green for deposits and positive balances
               Red for withdrawals and negative balances
+              Bold and Underline for the column guide
            */
-        console.log('date       || credit  || debit  || balance');
+        console.log(chalk.bold.underline('date       ||  credit  ||  debit  || balance'));
         transactions.forEach(transaction => {
             const credit = transaction.type === "Deposit" ? chalk.green(`${transaction.amount.toFixed(2)} `) : '';
             const debit = transaction.type === "Withdrawal" ? chalk.red(`${(-transaction.amount).toFixed(2)} `) : '';
             const paddedCredit = credit.padEnd(8, ' ');
             const paddedDebit = debit.padEnd(7, ' ');
+            
+            // If statement originally used to colour a positive/negative balance, now a beautification feature
             if (transaction.balance > 0) {
-                console.log(`${transaction.date} || ${paddedCredit}|| ${paddedDebit}|| ${chalk.green(transaction.balance.toFixed(2))}`);
+                console.log(chalk.bold(transaction.date)  + chalk.bold(" || ") +  paddedCredit  + chalk.bold(" || ") +  paddedDebit  + chalk.bold(" || ") +  chalk.green(transaction.balance.toFixed(2)));
             } else {
-                console.log(`${transaction.date} || ${paddedCredit}|| ${paddedDebit}|| ${chalk.red(transaction.balance.toFixed(2))}`);
+                console.log(chalk.bold(transaction.date)  + chalk.bold(" || ") +  paddedCredit  + chalk.bold(" || ") +  paddedDebit  + chalk.bold(" || ") +  chalk.red(transaction.balance.toFixed(2)));
             };
         });
     }
