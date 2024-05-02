@@ -1,5 +1,6 @@
 import Account from './account.js';
 import TransactionPrinter from './transactionPrinter.js';
+import chalk from 'chalk';
 
 let testAccount = new Account(0);
 let testPrinter = new TransactionPrinter();

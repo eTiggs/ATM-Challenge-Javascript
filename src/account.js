@@ -1,5 +1,5 @@
 export default class Account {
-    // initialises the balance and transactions array
+    // initializes the balance and transactions array
     #balance = 0;
     #transactions = [];
 
@@ -25,7 +25,7 @@ export default class Account {
         return this.#balance;
     }
 
-    // Adds a formatted withdrawl transaction object to the transactions array
+    // Adds a formatted withdrawal transaction object to the transactions array
     withdrawMoney(amountWithdrawn, date) {
         if (this.#balance < amountWithdrawn) {
             return "Amount withdrawn cannot be more than the balance";
