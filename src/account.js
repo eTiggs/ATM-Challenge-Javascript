@@ -3,11 +3,7 @@ export default class Account {
     #balance = 0;
     #transactions = [];
 
-    // Overloaded constructor, IF a balance is provided, it sanitises the input
-    constructor() {
-        this.#balance = 0;
-    }
-
+    // Constructor that sets the initial balance of the account
     constructor(initialBalance) {
         if (initialBalance < 0) {
             return "Initial balance cannot be negative";
