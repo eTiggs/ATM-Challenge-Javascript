@@ -28,6 +28,7 @@ export default class Account {
     }
 
     // Adds a formatted withdrawal transaction object to the transactions array
+    // Checks if the amount withdrawn is greater than the balance + overdraft limit
     withdrawMoney(amountWithdrawn, date) {
         if ((this.#balance + this.#overdraftLimit) < amountWithdrawn) {
             return "Amount withdrawn cannot be more than the balance";
@@ -49,14 +50,17 @@ export default class Account {
         this.#isOverdraftEnabled = true;
     }
 
+    // Returns the overdraft limit
     isOverdraftEnabled() {
         return this.#isOverdraftEnabled;
     }
 
+    // Disables Overdraft Facility
     disableOverdraft() {
         this.#isOverdraftEnabled = false;
     }
 
+    // Sets the overdraft limit
     setOverdraft(overdraftLimit) {
         this.#overdraftLimit = overdraftLimit;
     }

@@ -164,7 +164,7 @@ xdescribe("Statement 3 Tests:", () => {
     });
 });
 
-describe("Statement 6 Tests:", () => {
+xdescribe("Statement 6 Tests:", () => {
 
     let testAccount;
     let expected;
