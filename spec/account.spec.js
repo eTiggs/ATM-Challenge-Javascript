@@ -188,4 +188,19 @@ describe("Statement 6 Tests:", () => {
         // Assert
         expect(actual).toBe(expected);
     });
+
+    it("An overdraft can be disabled", () => {
+        // Arrange
+        testAccount.enableOverdraft()
+
+        testAccount.disableOverdraft()
+
+        // Act
+        actual = testAccount.isOverdraftEnabled();
+
+        expected = false;
+
+        // Assert
+        expect(actual).toBe(expected);
+    });
 });

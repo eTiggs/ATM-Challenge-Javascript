@@ -51,4 +51,8 @@ export default class Account {
     isOverdraftEnabled() {
         return this.#isOverdraftEnabled;
     }
+
+    disableOverdraft() {
+        this.#isOverdraftEnabled = false;
+    }
 }
