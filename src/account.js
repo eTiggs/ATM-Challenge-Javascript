@@ -2,6 +2,7 @@ export default class Account {
     // initializes the balance and transactions array
     #balance = 0;
     #transactions = [];
+    #isOverdraftEnabled = false;
 
     // Constructor that sets the initial balance of the account
     constructor(initialBalance) {
@@ -40,5 +41,14 @@ export default class Account {
     // Returns the transactions array
     getTransactions() {
         return this.#transactions;
+    }
+
+    // Enables Overdraft Facility
+    enableOverdraft() {
+        this.#isOverdraftEnabled = true;
+    }
+
+    isOverdraftEnabled() {
+        return this.#isOverdraftEnabled;
     }
 }

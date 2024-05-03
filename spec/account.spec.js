@@ -163,3 +163,29 @@ xdescribe("Statement 3 Tests:", () => {
         expect(actual).toBe(expected);
     });
 });
+
+describe("Statement 6 Tests:", () => {
+
+    let testAccount;
+    let expected;
+    let actual;
+
+    beforeEach(() => {
+        testAccount = new Account(0);
+        expected = undefined;
+        actual = undefined;
+    });
+
+    it("An overdraft can be enabled", () => {
+        // Arrange
+        testAccount.enableOverdraft()
+
+        // Act
+        actual = testAccount.isOverdraftEnabled();
+
+        expected = true;
+
+        // Assert
+        expect(actual).toBe(expected);
+    });
+});
