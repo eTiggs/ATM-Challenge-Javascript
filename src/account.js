@@ -3,6 +3,7 @@ export default class Account {
     #balance = 0;
     #transactions = [];
     #isOverdraftEnabled = false;
+    #overdraftLimit = 0;
 
     // Constructor that sets the initial balance of the account
     constructor(initialBalance) {
@@ -28,7 +29,7 @@ export default class Account {
 
     // Adds a formatted withdrawal transaction object to the transactions array
     withdrawMoney(amountWithdrawn, date) {
-        if (this.#balance < amountWithdrawn) {
+        if ((this.#balance + this.#overdraftLimit) < amountWithdrawn) {
             return "Amount withdrawn cannot be more than the balance";
         }
         if (amountWithdrawn < 0) {
@@ -54,5 +55,9 @@ export default class Account {
 
     disableOverdraft() {
         this.#isOverdraftEnabled = false;
+    }
+
+    setOverdraft(overdraftLimit) {
+        this.#overdraftLimit = overdraftLimit;
     }
 }

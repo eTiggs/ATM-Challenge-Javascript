@@ -203,4 +203,20 @@ describe("Statement 6 Tests:", () => {
         // Assert
         expect(actual).toBe(expected);
     });
+
+    it("An overdraft limit can be set", () => {
+        // Arrange
+        testAccount.enableOverdraft()
+        testAccount.setOverdraft(1000)
+        testAccount.withdrawMoney(1000)
+
+        // Act
+
+        actual = testAccount.getBalance();
+
+        expected = -1000;
+
+        // Assert
+        expect(actual).toBe(expected);
+    });
 });
