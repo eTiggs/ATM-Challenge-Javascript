@@ -6,7 +6,7 @@ export default class Account {
     #overdraftLimit = 0;
 
     // Constructor that sets the initial balance of the account
-    constructor(initialBalance) {
+    constructor(initialBalance = 0) {
         if (initialBalance < 0) {
             return "Initial balance cannot be negative";
         }
